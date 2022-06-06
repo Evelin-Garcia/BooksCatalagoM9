@@ -1,0 +1,46 @@
+<br><br>
+<div class="container">
+<div class="row">
+  <div class="col-6">
+<h1>Nuevo Libro</h1>
+<%= form_with model: Book.new do |f| %>
+
+  <div class="form-check" >
+    <%= f.label :title, "Título" %>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+  <br>
+  <div class="form-check" >
+    <%= f.label :author, "Autor" %>
+    <%= f.text_field :author, class: 'form-control' %>
+  </div>
+  <br>
+  <div class="form-check" >
+    <%= f.label :description, "Descripción" %>
+    <%= f.text_area :description, class: 'form-control' %>
+  </div>
+  <br>
+  <div class="form-check" >
+    <%= f.label :image_url, "Imagen" %>
+    <%= f.text_field :image_url, class: 'form-control' %>
+  </div>
+  <br>
+  <div class="form-check" >
+    <%= f.label :publication_date, "Fecha_publicación" %>
+    <%= f.date_field :publication_date, class: 'form-control' %>
+  </div>
+  <br>
+  <div class="form-check" >
+    <%= f.label :price, "Precio" %>
+    <%= f.number_field :price, step: :any, class: 'form-control' %>
+  </div>
+<br>
+  <div class="form-check" >
+    <%= f.submit "Crear libro", class: "btn btn-info mt-3" %>
+  </div>
+  <br>
+<%= link_to 'Volver', books_path, class: "btn btn-success" %>
+<% end %>
+</div>
+  </div>
+  </div>

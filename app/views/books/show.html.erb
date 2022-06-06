@@ -1,0 +1,36 @@
+<br><br>
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+<h1>DETALLES DEL LIBRO</h1>
+<hr>
+<img style="width: 200px;" src="<%=@book.image_url%>" />
+<br><br>
+<P>
+<strong>Nombre:</strong>
+<%= @book.title %>
+</p>
+
+<p>
+<strong>Autor:</strong>
+<%= @book.author %>
+</p>
+
+<p>
+<strong>Descripción:</strong>
+<%= @book.description %>
+</p>
+
+
+<p>
+<strong>Fecha de publicación:</strong>
+<%= @book.publication_date %>
+</p>
+
+<p>
+<strong>Precio:</strong>
+<%= @book.price %>
+</p>
+<br>
+<%= link_to 'Editar', edit_book_path(@book), class: "btn btn-info" %> |
+<%= link_to 'Volver', books_path, class: "btn btn-success" %>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BooksCatalogo</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body style="background-color:OldLace;">
+  <br><br>
+
+  <div class="container">
+    <div class="row">
+        <div class="col-12">
+      <% if user_signed_in? %>
+          <div>
+            <p>Bienvenido <%= current_user.email %>!!</p>
+            <%= link_to "Salir", destroy_user_session_path, method: :delete, class: 'btn btn-danger' %>
+          </div>
+      <% else %>
+          <div>
+            <%= link_to "Registrarse", new_user_registration_path, class: 'btn btn-info' %>
+            <%= link_to "Ingresar", new_user_session_path, class: 'btn btn-success' %>
+          </div>
+      <% end %>
+      <%= yield %>
+        </div>
+    </div>
+</div>
+
+  </body>
+</html>
