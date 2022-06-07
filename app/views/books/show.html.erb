@@ -28,9 +28,49 @@
 </p>
 
 <p>
-<strong>Precio:</strong>
+<strong>Precio promedio:</strong>
 <%= @book.price %>
 </p>
 <br>
+<hr>
+<h2>Listado de Capítulos:</h2>
+<% @book.chapters.each do |chapter| %>
+    <p>
+        <strong>Chapter number:</strong>
+        <%= chapter.chapter_number %>
+    </p>
+
+    <p>
+        <strong>Title:</strong>
+        <%= chapter.title %>
+    </p>
+
+    <p>
+        <strong>Summary:</strong>
+        <%= chapter.summary %>
+    </p>
+<% end %>
+<br>
+<hr>
+<h3>Agregue un capítulo:</h3>
+<%= form_with model: [ @book, @book.chapters.build ] do |form| %>
+    <p>
+        <%= form.label :capítulo_número %><br>
+        <%= form.number_field :chapter_number %>
+    </p>
+    <p>
+        <%= form.label :título %><br>
+        <%= form.text_field :title %>
+    </p>
+    <p>
+        <%= form.label :resumen %><br>
+        <%= form.text_area :summary %>
+    </p>
+    <p>
+        <%= form.submit "Crear capítulo"%>
+    </p>
+<% end %>
+<br><br>
 <%= link_to 'Editar', edit_book_path(@book), class: "btn btn-info" %> |
 <%= link_to 'Volver', books_path, class: "btn btn-success" %>
+<br><br>
