@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_06_212650) do
+ActiveRecord::Schema.define(version: 2022_06_07_215041) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,13 @@ ActiveRecord::Schema.define(version: 2022_06_06_212650) do
     t.index ["user_id"], name: "index_books_on_user_id"
   end
 
+  create_table "books_readers", id: false, force: :cascade do |t|
+    t.bigint "reader_id"
+    t.bigint "book_id"
+    t.index ["book_id"], name: "index_books_readers_on_book_id"
+    t.index ["reader_id"], name: "index_books_readers_on_reader_id"
+  end
+
   create_table "chapters", force: :cascade do |t|
     t.integer "chapter_number"
     t.string "title"
@@ -36,6 +43,15 @@ ActiveRecord::Schema.define(version: 2022_06_06_212650) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["book_id"], name: "index_chapters_on_book_id"
+  end
+
+  create_table "readers", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "age"
+    t.text "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|

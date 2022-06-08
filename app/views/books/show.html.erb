@@ -33,6 +33,24 @@
 </p>
 <br>
 <hr>
+<h4>Lectores:</h4>
+
+    <div>
+        <% if @book.readers %>
+        <% @book.readers.each do |reader|%>
+        <strong><%= reader.id %>: 
+        <p><b>Nombre:</b>  </strong><%= "#{reader.first_name} #{reader.last_name}" %>
+        <br>
+        <p><b>Comentario:</b>  </strong><%="#{reader.comment}"%></p>
+        <% end %>
+    </div>
+    <% else %>
+        <% 'No Readers Added!!!'%>
+    <% end %>
+<br>
+<%= link_to 'Agregar Lectores', new_book_reader_path(@book) %>
+<br><br>
+<hr>
 <h2>Listado de Capítulos:</h2>
 <% @book.chapters.each do |chapter| %>
     <p>
@@ -51,6 +69,8 @@
     </p>
 <% end %>
 <br>
+<br>
+
 <hr>
 <h3>Agregue un capítulo:</h3>
 <%= form_with model: [ @book, @book.chapters.build ] do |form| %>
@@ -70,7 +90,8 @@
         <%= form.submit "Crear capítulo"%>
     </p>
 <% end %>
-<br><br>
+
+
 <%= link_to 'Editar', edit_book_path(@book), class: "btn btn-info" %> |
 <%= link_to 'Volver', books_path, class: "btn btn-success" %>
 <br><br>
