@@ -3,5 +3,5 @@ class Book < ApplicationRecord
     has_many :chapters, dependent: :destroy
     has_and_belongs_to_many :readers
 
-    validates :name, presence: true
+    validates :title, presence: true
 end
