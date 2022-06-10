@@ -1,7 +1,20 @@
 <br><br>
 <div class="container">
   <div class="row">
-    <div class="col-6">
+    <div class="col-12">
+        <div>
+            <nav class="navbar navbar-expand-sm bg-dark navbar-light">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <%= link_to 'Home', home_path, class: 'btn btn-secondary'%>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to 'Editar', edit_book_path(@book), class: "btn btn-info" %>
+                    </li>
+                </ul>
+            </nav> 
+        </div>
+<br>
 <h1>DETALLES DEL LIBRO</h1>
 <hr>
 <img style="width: 200px;" src="<%=@book.image_url%>" />
@@ -54,18 +67,18 @@
 <h2>Listado de Capítulos:</h2>
 <% @book.chapters.each do |chapter| %>
     <p>
-        <strong>Chapter number:</strong>
+        <strong>Capítulo número:</strong>
         <%= chapter.chapter_number %>
     </p>
 
     <p>
-        <strong>Title:</strong>
+        <strong>Título:</strong>
         <%= chapter.title %>
     </p>
 
     <p>
-        <strong>Summary:</strong>
-        <%= chapter.summary %>
+        <strong>Resumen:</strong>
+        <%= chapter.summary%>
     </p>
 <% end %>
 <br>
@@ -90,8 +103,4 @@
         <%= form.submit "Crear capítulo"%>
     </p>
 <% end %>
-
-
-<%= link_to 'Editar', edit_book_path(@book), class: "btn btn-info" %> |
-<%= link_to 'Volver', books_path, class: "btn btn-success" %>
 <br><br>

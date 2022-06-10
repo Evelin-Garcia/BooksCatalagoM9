@@ -1,13 +1,11 @@
 puts 'creando libros...'
 
 User.destroy_all
-User.create!(
-    [
-        
+User.create!([
           { email: 'user1@gmail.com', password: 123456 },
           { email: 'user2@gmail.com', password: 123456 }
-    ]
-)
+    ])
+
 Book.destroy_all
 
 Book.create!(

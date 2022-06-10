@@ -1,6 +1,10 @@
-<br>
+<br><br>
+<div class="container">
+    <div class="row">
+      <div class="col-10">
+<br><br>
 <h2>Ingresar</h2>
-
+<br>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
@@ -20,10 +24,12 @@
   <% end %>
   <br>
   <div class="actions">
-    <%= f.submit "Log in", class: 'btn btn-success' %>
+    <%= f.submit "Ingresar", class: 'btn btn-warning' %>
   </div>
 <% end %>
-
+<br>
 <%= render "devise/shared/links" %>
 <br><br>
-<%= link_to 'Volver', home_path, class: 'btn btn-warning' %>
+</div>
+</div>
+</div>

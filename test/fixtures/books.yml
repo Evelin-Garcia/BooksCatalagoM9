@@ -1,17 +1,10 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  author: MyString
-  description: MyText
-  image_url: MyString
-  publication_date: 2022-05-22
-  price: 9.99
-
-two:
-  title: MyString
-  author: MyString
-  description: MyText
-  image_url: MyString
-  publication_date: 2022-05-22
-  price: 9.99
+el_principito:
+ title: "El Principito" 
+ author: "Antoine de Saint-Exupéry" 
+ description: "El principito, un relato considerado como un libro infantil por la forma en la que está escrito, pero que es en realidad una crítica de la adultez en el que se tratan temas profundos como el sentido de la vida, la soledad, la amistad, el amor y la pérdida." 
+ image_url: "https://acortar.link/UeSp0f"
+ publication_date: "06-04-1943" 
+ price: 13000
+ user: <%= User.last %>
